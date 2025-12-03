@@ -25,9 +25,9 @@ export default function RootLayout({
       <body
         className={`${vazirmatn.className} antialiased min-h-screen flex flex-col`}
       >
-        {/* <Header /> */}
+        <Header />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
