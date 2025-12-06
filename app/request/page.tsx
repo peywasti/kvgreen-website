@@ -68,7 +68,7 @@ export default function ContactPage() {
             <label className="block mb-1 font-medium" htmlFor="message">پیام شما</label>
             <textarea
               id="message"
-              rows="5"
+              rows={5}
               placeholder="توضیحات یا سوالات خود را وارد کنید..."
               className="w-full border px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
             ></textarea>
