@@ -1,4 +1,10 @@
-export default function SinglePostPage({ params }) {
+interface SinglePostPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default function SinglePostPage({ params }: SinglePostPageProps) {
   const { slug } = params;
 
   // داده نمونه — در عمل می‌توانی از فایل Markdown یا دیتابیس دریافت کنی
