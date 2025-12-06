@@ -4,6 +4,8 @@ interface ProductPageProps {
   };
 }
 
+import Image from "next/image";
+
 export default function ProductPage({ params }: ProductPageProps) {
   const { slug } = params;
 
@@ -36,7 +38,7 @@ export default function ProductPage({ params }: ProductPageProps) {
 
       {/* تصویر محصول */}
       <div className="w-full h-64 md:h-96 relative rounded-lg overflow-hidden border shadow-sm">
-        <img
+        <Image
           src={product.image}
           alt={product.name}
           className="w-full h-full object-cover"
