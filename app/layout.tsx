@@ -5,8 +5,8 @@ import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 
 const vazirmatn = Vazirmatn({
-  subsets: ["latin", "arabic"], // include arabic if needed
-  weight: ["400", "700"], // specify weights you want
+  subsets: ["latin", "arabic"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -17,16 +17,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="fa" dir="rtl">
       <body
-        className={`${vazirmatn.className} antialiased min-h-screen flex flex-col`}
+        className={`${vazirmatn.className} antialiased min-h-screen flex flex-col bg-gray-50`}
       >
         <Header />
-        {children}
+
+        {/* Main Content */}
+        <main className="flex-grow max-w-6xl mx-auto w-full p-4 pt-8">
+          {children}
+        </main>
+
         <Footer />
       </body>
     </html>
