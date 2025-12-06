@@ -29,7 +29,7 @@ export default function SinglePostPage({ params }: SinglePostPageProps) {
   return (
     <article className="prose prose-lg prose-headings:font-bold prose-p:leading-8 max-w-3xl mx-auto text-gray-800 rtl text-right">
 
-      <h1 className="!text-3xl !mb-4">{post.title}</h1>
+      <h1 className="text-3xl! mb-4!">{post.title}</h1>
 
       <div className="text-sm text-gray-500 mb-6">{post.date}</div>
 
