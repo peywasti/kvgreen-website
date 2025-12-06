@@ -1,32 +1,35 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="flex justify-between items-center dark:bg-gray-950 dark:text-white p-3">
+    <header className="w-full border-b bg-white">
+      <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
 
-      <div className="flex items-center">
-        <Image
-          src="/kvgreen-logo.svg"
-          width={100}
-          height={100}
-          alt="KV-Green Logo"
-          className="mx-auto"
-        />
-        <div className="title">
-          کی‌وی‌گرین
-          <div className="slogan">
-              پنل‌های خورشیدی
+        {/* Logo + Title */}
+        <div className="flex items-center gap-3">
+          <Image
+            src="/kvgreen-logo.svg"
+            width={50}
+            height={50}
+            alt="KV-Green Logo"
+          />
+          <div className="flex flex-col">
+            <span className="text-lg font-bold">کی‌ وی ‌گرین</span>
+            <span className="text-sm text-gray-600">پنل‌های خورشیدی</span>
           </div>
         </div>
+
+        {/* Navigation */}
+        <nav className="flex gap-4 text-sm">
+          <Link href="/" className="hover:text-green-600">خانه</Link>
+          <Link href="/about" className="hover:text-green-600">درباره ما</Link>
+          <Link href="/products" className="hover:text-green-600">محصولات</Link>
+          <Link href="/blog" className="hover:text-green-600">بلاگ</Link>
+          <Link href="/contact" className="hover:text-green-600">تماس با ما</Link>
+        </nav>
+
       </div>
-      <nav className="flex gap-2">
-        <Link href={"/"}>خانه</Link>
-        <Link href={"/about"}>درباره‌ی ما</Link>
-        <Link href={"/products"}>محصولات</Link>
-        <Link href={"/blog"}>بلاگ</Link>
-        <Link href={"/contact"}>تماس با ما</Link>        
-      </nav>
     </header>
   );
 }
