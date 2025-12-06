@@ -1,4 +1,10 @@
-export default function ProductPage({ params }) {
+interface ProductPageProps {
+  params: {
+    slug: string; // یا می‌توانی id: string اگر پارامتر URL عددی است
+  };
+}
+
+export default function ProductPage({ params }: ProductPageProps) {
   const { slug } = params;
 
   // داده نمونه محصول
