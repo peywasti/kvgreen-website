@@ -1,14 +1,15 @@
 interface ProductPageProps {
-  params: {
-    slug: string; // یا می‌توانی id: string اگر پارامتر URL عددی است
-  };
+  params: Promise<{
+    slug: string;
+  }>;
 }
 
 import Image from "next/image";
 
-export default function ProductPage({ params }: ProductPageProps) {
-  const { slug } = params;
+export default async function ProductPage({ params }: ProductPageProps) {
+  const { slug } = await params; // eslint-disable-line @typescript-eslint/no-unused-vars
 
+  // TODO: Use slug to fetch actual product data from database/API
   // داده نمونه محصول
   const product = {
     name: "پنل خورشیدی مونوکریستال 300 وات",

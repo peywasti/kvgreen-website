@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function HomePage() {
   return (
     <div className="space-y-16 text-gray-800">
@@ -116,12 +117,12 @@ export default function HomePage() {
 
         </div>
         <div className="text-center mt-6">
-          <a
+          <Link
             href="/products"
             className="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition"
           >
             مشاهده پکیج‌ها
-          </a>
+          </Link>
         </div>
       </section>
 

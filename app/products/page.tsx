@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function ProductsPage() {
   // نمونه داده محصولات — بعداً می‌توانی از API یا دیتابیس جایگزین کنی
   const products = [
@@ -47,10 +49,11 @@ export default function ProductsPage() {
             className="block bg-white border rounded-lg shadow-sm hover:shadow-md transition overflow-hidden"
           >
             <div className="h-48 w-full relative">
-              <img
+              <Image
                 src={product.image}
                 alt={product.name}
-                className="object-cover w-full h-full"
+                fill
+                className="object-cover"
               />
             </div>
             <div className="p-4">
