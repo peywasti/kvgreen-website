@@ -22,8 +22,8 @@ export default async function SinglePostPage({ params }: Props) {
 
   return (
     <main className="max-w-3xl mx-auto p-6 prose prose-lg prose-h1:text-green-600">
-      <h1>{post.frontmatter.title}</h1>
-      <p className="text-gray-500">{post.frontmatter.date}</p>
+      <h1>{post.title}</h1>
+      <p className="text-gray-500">{post.date}</p>
 
       <article
         dangerouslySetInnerHTML={{ __html: post.html }}
