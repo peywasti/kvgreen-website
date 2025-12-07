@@ -1,47 +1,33 @@
-interface SinglePostPageProps {
-  params: {
-    slug: string;
-  };
+import { getPost } from "@/lib/posts";
+import { notFound } from "next/navigation";
+
+interface Props {
+  params: Promise<{ slug: string }>;
 }
 
-export default function SinglePostPage({ params }: SinglePostPageProps) {
-  const { slug } = params;
+export default async function SinglePostPage({ params }: Props) {
 
-  // داده نمونه — در عمل می‌توانی از فایل Markdown یا دیتابیس دریافت کنی
-  const post = {
-    title: "راهنمای انتخاب پنل خورشیدی مناسب",
-    date: "۱۴۰۴/۱۰/۲۰",
-    content: `
-      انتخاب پنل خورشیدی مناسب یکی از مهم‌ترین مراحل طراحی یک سیستم خورشیدی است.
-      برای این کار باید فاکتورهایی مانند راندمان، توان نامی، تکنولوژی سلول‌ها،
-      سازگاری با اقلیم، گارانتی و طول عمر مورد بررسی قرار گیرد.
+  const { slug } = await params;
 
-      در سال‌های اخیر پانل‌های مونوکریستال به دلیل راندمان بالاتر و عملکرد بهتر
-      در دماهای مختلف، محبوبیت بیشتری پیدا کرده‌اند. البته سیستم‌های پلی‌کریستال
-      و هاف‌سل نیز کاربردهای خاص خود را دارند.
+  if (!slug) {
+    return notFound();
+  }
 
-      یکی از مهم‌ترین نکات، بررسی شرایط نصب در محل مورد نظر است؛ زاویه تابش،
-      سایه‌اندازی، گرمای هوا و میزان تابش سالانه مواردی هستند که باید در محاسبات
-      لحاظ شوند.
-    `,
-  };
+  let post;
+  try {
+    post = getPost(slug);
+  } catch {
+    return notFound();
+  }
 
   return (
-    <article className="prose prose-lg prose-headings:font-bold prose-p:leading-8 max-w-3xl mx-auto text-gray-800 rtl text-right">
+    <main className="max-w-3xl mx-auto p-6 prose prose-lg prose-h1:text-green-600">
+      <h1>{post.frontmatter.title}</h1>
+      <p className="text-gray-500">{post.frontmatter.date}</p>
 
-      <h1 className="text-3xl! mb-4!">{post.title}</h1>
-
-      <div className="text-sm text-gray-500 mb-6">{post.date}</div>
-
-      {/* تبدیل متن چندخطی به پاراگراف‌ها */}
-      {post.content.split("\n").map(
-        (line, i) =>
-          line.trim() && (
-            <p key={i} className="text-gray-700 leading-8">
-              {line.trim()}
-            </p>
-          )
-      )}
-    </article>
+      <article
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      />
+    </main>
   );
 }
