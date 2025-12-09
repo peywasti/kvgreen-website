@@ -6,7 +6,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="bg-green-50 py-20 text-center px-4">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          KV-GREEN | راهکارهای پاک و همیشگی با پنل های خورشیدی
+          راهکارهای پاک و همیشگی با پنل های خورشیدی
         </h1>
         <p className="text-lg md:text-xl mb-6">
           تأمین انرژی پایدار با پکیج‌های تخصصی خورشیدی، مناسب چاه‌های آب، کارخانه‌ها، واحدهای تولیدی و خانه‌ها.
