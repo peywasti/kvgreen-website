@@ -25,21 +25,31 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitMessage('');
 
-    // Simulate form submission
     try {
-      // Here you would typically send the data to your backend
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
-
-      setSubmitMessage('پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+      // Send form data to your backend API
+      const response = await fetch('/api/forms', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        setSubmitMessage('پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Failed to send message');
+      }
     } catch (error) {
-      setSubmitMessage('متاسفانه خطایی رخ داد. لطفا دوباره تلاش کنید.');
+      console.error('Form submission error:', error);
+      setSubmitMessage('متاسفانه خطایی رخ داد. لطفا دوباره تلاش کنید یا با شماره تلفن تماس بگیرید.');
     } finally {
       setIsSubmitting(false);
     }
