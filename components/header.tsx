@@ -22,7 +22,6 @@ export default function Header() {
 
         {/* Navigation */}
         <nav className="flex gap-4 text-sm mr-8">
-          <Link href="/" className="hover:text-green-600">خانه</Link>
           <Link href="/about" className="hover:text-green-600">درباره ما</Link>
           <Link href="/products" className="hover:text-green-600">محصولات</Link>
           <Link href="/blog" className="hover:text-green-600">بلاگ</Link>
