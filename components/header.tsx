@@ -21,7 +21,15 @@ export default function Header() {
         </Link>
 
         {/* Spacer */}
-        <div className="flex-1"></div>
+        <div className="flex-1"></div>     
+
+        {/* Navigation */}
+        <nav className="flex gap-4 text-sm ml-4">
+          <Link href="/about" className="hover:text-green-600">درباره ما</Link>
+          <Link href="/products" className="hover:text-green-600">محصولات</Link>
+          <Link href="/blog" className="hover:text-green-600">بلاگ</Link>
+          <Link href="/contact" className="hover:text-green-600">تماس با ما</Link>
+        </nav>
 
         {/* Request Button */}
         <Link
@@ -30,14 +38,6 @@ export default function Header() {
         >
           درخواست مشاوره
         </Link>
-
-        {/* Navigation */}
-        <nav className="flex gap-4 text-sm mr-4">
-          <Link href="/about" className="hover:text-green-600">درباره ما</Link>
-          <Link href="/products" className="hover:text-green-600">محصولات</Link>
-          <Link href="/blog" className="hover:text-green-600">بلاگ</Link>
-          <Link href="/contact" className="hover:text-green-600">تماس با ما</Link>
-        </nav>
 
       </div>
     </header>
