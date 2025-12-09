@@ -7,7 +7,7 @@ export default function Header() {
       <div className="max-w-6xl mx-auto flex items-center p-4">
 
         {/* Logo + Title */}
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <Image
             src="/kvgreen-logo.svg"
             width={50}
@@ -18,7 +18,7 @@ export default function Header() {
             <span className="text-lg font-bold">کی‌ وی ‌گرین</span>
             <span className="text-sm text-gray-600">پنل‌های خورشیدی</span>
           </div>
-        </div>
+        </Link>
 
         {/* Navigation */}
         <nav className="flex gap-4 text-sm mr-8">
