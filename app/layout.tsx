@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import { Vazirmatn } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const vazirmatn = Vazirmatn({
-  subsets: ["latin", "arabic"],
-  weight: ["400", "700"],
+const Estedad = localFont({
+  src: "../public/fonts/Estedad[KSHD,wght].woff2",
   display: "swap",
+  variable: "--font-estedad",
+  weight: "100 900", // Variable font range from thin to black
 });
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body
-        className={`${vazirmatn.className} antialiased min-h-screen flex flex-col bg-gray-50`}
+        className={`${Estedad.className} antialiased min-h-screen flex flex-col bg-gray-50`}
       >
         <Header />
 
