@@ -20,11 +20,10 @@ export function getAllProducts(): Omit<Product, "html">[] {
       slug,
       title: data.title,
       excerpt: data.excerpt,
-      date: data.date,
+      date: String(data.date),
       tags: data.tags || [],
       cover: data.cover || "",
       features: data.features || [],
-      specs: data.specs || [],
     };
   });
 }
@@ -52,7 +51,7 @@ export function getProduct(slug: string): Product {
     slug,
     title: data.title,
     excerpt: data.excerpt,
-    date: data.date,
+    date: String(data.date),
     tags: data.tags || [],
     cover: data.cover || "",
     features: data.features || [],

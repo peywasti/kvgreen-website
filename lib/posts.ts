@@ -20,7 +20,7 @@ export function getAllPosts(): Omit<Post, "html">[] {
       slug,
       title: data.title,
       excerpt: data.excerpt,
-      date: data.date,
+      date: String(data.date),
       tags: data.tags || [],
       cover: data.cover || "",
     };
@@ -50,7 +50,7 @@ export function getPost(slug: string): Post {
     slug,
     title: data.title,
     excerpt: data.excerpt,
-    date: data.date,
+    date: String(data.date),
     tags: data.tags || [],
     cover: data.cover || "",
     html,
