@@ -29,7 +29,7 @@ export default function RootLayout({
         <Header />
 
         {/* Main Content */}
-        <main className="grow max-w-6xl mx-auto w-full p-4 pt-8">
+        <main className="grow w-full pt-20">
           {children}
         </main>
 
